@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Moja aplikacja Django{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+
+    <!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}">Rezerwacje</a>
+<div class="collapse navbar-collapse">
+    <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+            <a href="{% url 'home' %}" class="nav-link text-white">Strona główna</a>
+        </li>
+        <li class="nav-item">
+            <a href="{% url 'about' %}" class="nav-link text-white">O nas</a>
+        </li>
+        <li class="nav-item">
+            <a href="{% url 'add_service' %}" class="nav-link text-white">Dodaj usługę</a>
+        </li>
+    </ul>
+</div>
+
+    </div>
+</nav>
+
+
+    <!-- GŁÓWNA TREŚĆ -->
+    <div class="container my-4">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- STOPKA -->
+    <footer class="bg-dark text-white text-center py-3">
+        &copy; {{ now.year }} Moja Aplikacja Django
+    </footer>
+
+</body>
+</html>

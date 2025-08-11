@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Strona główna{% endblock %}
+
+{% block content %}
+    <h1>Witaj, {{ imie }}!</h1>
+    <p>Dzisiaj jest: {{ aktualny_czas }}</p>
+
+    <h2>Nasze usługi:</h2>
+    <ul class="list-group">
+        {% for usluga in uslugi %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                    <strong>{{ usluga.name }}</strong><br>
+                    <small>{{ usluga.description }}</small>
+                </div>
+                <span class="badge bg-primary rounded-pill">{{ usluga.price }} zł</span>
+            </li>
+        {% empty %}
+            <li class="list-group-item">Brak usług do wyświetlenia.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

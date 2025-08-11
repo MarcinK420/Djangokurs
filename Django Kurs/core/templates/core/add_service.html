@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Dodaj usługę{% endblock %}
+
+{% block content %}
+<h2>Dodaj nową usługę</h2>
+
+<form method="post" novalidate>
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit" class="btn btn-primary">Dodaj usługę</button>
+</form>
+
+<a href="{% url 'home' %}">Powrót do strony głównej</a>
+{% endblock %}
